@@ -1,10 +1,11 @@
 #include <iostream>
+#include "LinkedList.h"
 
 int main()
 {
 
-	std::cout << "Hello World" << std::endl;
-
+	LinkedList<int> list;
+	list.push_back(1);
 
 	system("PAUSE");
 	return 0;
