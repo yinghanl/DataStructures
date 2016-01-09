@@ -14,6 +14,16 @@ LinkedList<T>::LinkedList()
 template<typename T>
 LinkedList<T>::~LinkedList()
 {
+	while (mSize != 0)
+	{
+		pop_back();
+	}
+}
+
+template<typename T>
+int LinkedList<T>::size()
+{
+	return mSize;
 }
 
 template<typename T>

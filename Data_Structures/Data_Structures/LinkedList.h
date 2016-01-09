@@ -19,6 +19,7 @@ struct ListItem
 public:
 	LinkedList();
 	~LinkedList();
+	int size();
 	void push_back(T val);
 	void push_front(T val);
 	void pop_back();
