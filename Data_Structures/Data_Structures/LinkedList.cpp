@@ -20,15 +20,87 @@ template<typename T>
 void LinkedList<T>::push_back(T val)
 {
 	ListItem* toInsert = new ListItem(val);
-	if (mHead == nullptr)
+	toInsert->next = nullptr;
+	if (mTail == nullptr)
 	{
+		toInsert->prev = nullptr;
 		mHead = toInsert;
 		mTail = mHead;
 	}
 	else
 	{
 		mTail->next = toInsert;
+		toInsert->prev = mTail;
 		mTail = toInsert;
+	}
+	mSize++;
+}
+
+template<typename T>
+void LinkedList<T>::push_front(T val)
+{
+	ListItem* toinsert = new ListItem(val);
+	toInsert->prev = nullptr;
+	if (mHead == nullptr)
+	{
+		toInsert->next = nullptr;
+		mHead = toInsert;
+		mTail = mHead;
+	}
+	else
+	{
+		mHead->prev = toInsert;
+		toInsert->next = mHead;
+		mHead = toInsert;
+	}
+	mSize++;
+}
+
+template<typename T>
+void LinkedList<T>::pop_back()
+{
+	if (mTail == nullptr)
+	{
+		return;
+	}
+	else if (mHead == mTail)
+	{
+		delete mTail;
+		mHead = nullptr;
+		mTail = nullptr;
+		mSize--;
+	}
+	else
+	{
+		ListItem* previous = mTail->prev;
+		previous->next = nullptr;
+		delete mTail;
+		mTail = previous;
+		mSize--;
+	}
+}
+
+template<typename T>
+void LinkedList<T>::pop_front()
+{
+	if (mHead == nullptr)
+	{
+		return;
+	}
+	else if (mHead == mTail)
+	{
+		delete mHead;
+		mHead = nullptr;
+		mTail = nullptr;
+		mSize--;
+	}
+	else
+	{
+		ListItem* next = mHead->next;
+		next->prev = nullptr;
+		delete mHead;
+		mHead = next;
+		mSize--;
 	}
 }
 
