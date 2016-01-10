@@ -114,4 +114,16 @@ void LinkedList<T>::pop_front()
 	}
 }
 
+template<typename T>
+auto LinkedList<T>::begin()
+{
+	return LinkedListIterator(mHead);
+}
+
+template<typename T>
+auto LinkedList<T>::end()
+{
+	return LinkedListIterator(nullptr);
+}
+
 #endif

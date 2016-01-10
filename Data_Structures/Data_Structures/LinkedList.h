@@ -17,6 +17,35 @@ struct ListItem
 };
 
 public:
+class LinkedListIterator
+{
+public:
+	LinkedListIterator(ListItem* item)
+	{
+		current = item;
+	}
+	void operator++()
+	{
+		current = current->next;
+	}
+	T operator*()
+	{
+		return current->val;
+	}
+	bool operator==(LinkedListIterator target)
+	{
+		return (current == target.current);
+	}
+
+	bool operator!=(LinkedListIterator target)
+	{
+		return (current != target.current);
+	}
+private:
+	ListItem* current;
+};
+
+public:
 	LinkedList();
 	~LinkedList();
 	int size();
@@ -24,6 +53,8 @@ public:
 	void push_front(T val);
 	void pop_back();
 	void pop_front();
+	auto begin();
+	auto end();
 
 private:
 	ListItem* mHead;
