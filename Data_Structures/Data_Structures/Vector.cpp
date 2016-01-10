@@ -52,4 +52,10 @@ void Vector<T>::pop_back(T val)
 	mSize--;
 }
 
+template<typename T>
+T Vector<T>::operator[](int index)
+{
+	return mStorage[index];
+}
+
 #endif

@@ -8,6 +8,7 @@ public:
 	int size();
 	void push_back(T val);
 	void pop_back(T val);
+	T operator[](int index);
 
 private:
 	T *mStorage;
